@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Askme</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div style="background: <%= current_user&.color %>" class="navbar">
+        <p class="title__sm text__bold"><%= link_to "Ask me!", root_path %></p>
+        <div>
+          <% if current_user.present? %>
+            <%= content_tag 'span', display_nickname(current_user), class: 'mr__sm text__bold text__decoration' %>
+            <%= link_to "User Settings", edit_user_path(current_user), class: 'button button__yellow mr__sm' %>
+            <%= button_to 'Exit', session_path, method: :delete, class: 'button button__yellow' %>
+          <% else %>
+            <%= link_to "Registration", new_user_path, class: 'button button__yellow mr__sm' %>
+            <%= link_to 'Login', new_session_path, class: 'button button__yellow'  %>
+          <% end %>
+        </div>
+      </div>
+      <% if flash[:notice].present? %>
+        <p class="mb mt message__notice"><%= flash[:notice]%></p>
+      <% elsif flash[:alert].present? %>
+        <p class="mb mt message message__alert"><%= flash[:alert]%></p>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+.back {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  margin-right: auto;
+}
+.back__text {
+  margin-left: 1em;
+}
+
+.back__link {
+  padding: 1em;
+}
+
+.back__link:hover {
+  color: rgb(234, 218, 214);
+}

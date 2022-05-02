@@ -1,0 +1,36 @@
+.mt__sm {
+  margin-top: 0.6rem;
+}
+
+.mt, mt-md {
+  margin-top: 1rem;
+}
+
+.mt__lg {
+  margin-top: 1.75rem;
+}
+
+.mb__sm {
+  margin-bottom: 0.6rem;
+  white-space: pre-line
+}
+
+.mb, mb-md {
+  margin-bottom: 1rem;
+}
+
+.mb__lg {
+  margin-bottom: 1.75rem;
+}
+
+.mr__sm {
+  margin-right: .6em;
+}
+
+.mr, .mr__md {
+  margin-right: 1em;
+}
+
+.mr__lg {
+  margin-right: 1.75em;
+}

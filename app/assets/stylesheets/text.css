@@ -1,0 +1,44 @@
+body {
+  color: #03071E;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+a, button {
+  color: #cd5616;
+}
+
+a:hover {
+  color: #d4847dbc;
+}
+
+.title__lg {
+  font-size: 175%;
+}
+
+.title__md, .title {
+  font-size: 150%;
+}
+
+.title__sm {
+  font-size: 125%;
+}
+
+.text__sm {
+  font-size: 80%;
+}
+
+.text__grey {
+  color: #a0a0a0;
+}
+
+.text__bold {
+  font-weight: bold;
+}
+
+.text__red {
+  color: rgb(162, 17, 17);
+}
+
+.text__decoration {
+  text-decoration: underline;
+}

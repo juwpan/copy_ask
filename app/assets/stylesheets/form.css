@@ -1,0 +1,16 @@
+.form__text__area,
+.form__text__field{
+  border: 1px solid #d0d0d0;
+  padding: 1em;
+}
+
+.form__text__area:focus,
+.form__text__field:focus{
+  background-color: #e2ce9b;
+  outline-width: 0;
+}
+
+.form__text__area {
+  box-sizing: border-box;
+  width: 100%;
+}

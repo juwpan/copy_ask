@@ -1,0 +1,22 @@
+.button {
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 13px 7px;
+  text-decoration: none;
+}
+
+.button__main {
+  background-color: #97150C;
+}
+
+.button__main:hover {
+  background-color: #6d110a;
+  color: rgb(255, 255, 255);
+}
+
+.button__yellow {
+  background-color: #e4703f;
+}

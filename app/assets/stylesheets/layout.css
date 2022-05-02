@@ -1,0 +1,37 @@
+body {
+  background: #03071E ;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 40px;
+  width: 100%;
+}
+
+.container, .navbar {
+  background: #ffff;
+}
+
+.container, .navbar, .navbar__right {
+  padding: 20px;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  background-color: #370617;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
