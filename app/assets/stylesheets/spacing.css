@@ -2,7 +2,8 @@
   margin-top: 0.6rem;
 }
 
-.mt, mt-md {
+.mt,
+.mt__md {
   margin-top: 1rem;
 }
 
@@ -12,10 +13,10 @@
 
 .mb__sm {
   margin-bottom: 0.6rem;
-  white-space: pre-line
 }
 
-.mb, mb-md {
+.mb,
+.mb__md {
   margin-bottom: 1rem;
 }
 
@@ -27,7 +28,8 @@
   margin-right: .6em;
 }
 
-.mr, .mr__md {
+.mr,
+.mr__md {
   margin-right: 1em;
 }
 

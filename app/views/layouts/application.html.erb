@@ -8,9 +8,10 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+
   <body>
     <div class="wrapper">
-    <div class="navbar" style="background: <%= current_user&.color || '#370617' %>">
+      <div class="navbar" style="background: <%= current_user&.color || '#370617' %>">
         <p class="title__sm text__bold"><%= link_to "Ask me!", root_path %></p>
         <div>
           <% if current_user.present? %>
@@ -30,5 +31,6 @@
       <% end %>
       <%= yield %>
     </div>
+    
   </body>
 </html>

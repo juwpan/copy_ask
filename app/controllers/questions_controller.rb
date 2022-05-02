@@ -26,10 +26,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    respond_to do |format|
-      format.html {redirect_to questions_path, status: :see_other, notice: 'Question delete!'}
-      format.json {head :no_content}
-    end
+    redirect_to questions_path, status: :see_other, notice: 'Question delete!'
   end
 
   def show

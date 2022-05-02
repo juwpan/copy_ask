@@ -42,3 +42,7 @@ a:hover {
 .text__decoration {
   text-decoration: underline;
 }
+
+.text__pre__line {
+  white-space: pre-line
+}
