@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   before_save :downcase_nickname
 
-  # validates :color, format: {with: /\A#\h{3}{1,2}\z/}
+  validates :color, format: {with: /\A#\h{3}{1,2}\z/}
 
   validates :email, presence: true, uniqueness: true, format: {
      with: /\A[^@\s]+@[^@\s]+\z/
