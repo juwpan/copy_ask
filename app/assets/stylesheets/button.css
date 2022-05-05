@@ -18,5 +18,20 @@
 }
 
 .button__yellow {
-  background-color: #e4703f;
+  background-color: #d88416;
+}
+
+.button__yellow:hover {
+  background-color: #f5b380;
+  color: rgb(255, 255, 255);
+}
+
+.button__blue {
+  font-size: 18px;
+  background-color: rgba(8, 127, 148, 0.821);
+  padding: 15px 30px;
+}
+
+.button__blue:hover {
+  background-color: rgba(118, 215, 215, 0.814);
 }

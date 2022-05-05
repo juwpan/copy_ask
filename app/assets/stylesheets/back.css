@@ -4,11 +4,3 @@
   justify-content: flex-start;
   margin-right: auto;
 }
-
-.back__link {
-  padding: 1em;
-}
-
-.back__link:hover {
-  color: rgb(234, 218, 214);
-}

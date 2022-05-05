@@ -1,0 +1,17 @@
+.user__box {
+  align-items: center;
+  background-color: #9f6610;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user__box a {
+  color: #fff;
+}
+
+.user__all {
+  display: flex;
+  justify-content: space-between;
+}

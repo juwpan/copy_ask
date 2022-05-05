@@ -1,0 +1,15 @@
+.menu__icon {
+  width: 300px;
+}
+
+img.menu__icon__opacity {
+  filter: alpha(Opacity=75);
+  opacity: 0.75;
+  width: 300px;
+}
+
+.empty__state {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}

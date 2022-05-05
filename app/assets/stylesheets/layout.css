@@ -2,6 +2,8 @@ body {
   background: #03071E;
   display: flex;
   justify-content: center;
+  color: #03071E;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .wrapper {
@@ -16,8 +18,7 @@ body {
 }
 
 .container,
-.navbar,
-.navbar__right {
+.navbar {
   padding: 20px;
 }
 

@@ -2,6 +2,7 @@
  *= require reset
  *
  *= require font-awesome
+ *= require img
  *= require text
  *= require spacing
  *= require layout
@@ -9,7 +10,8 @@
  *= require form
  *= require back
  *= require hidden
- *= require message.css
+ *= require message
+ *= require user
  *= remove include bootstrap-sprockets
  *
  *

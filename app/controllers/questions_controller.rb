@@ -1,11 +1,17 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[edit update show destroy hide visible]
+  before_action :set_question_for_current_user, only: %i[edit update destroy hide visible]
 
   def create
-    @question = Question.new(question_params)
+    questions_params = params.require(:question).permit(:body, :user_id)
+    
+    @question = Question.new(questions_params)
+    
+    if @question.author_id == nil
+      @question.author_id = current_user.id
+    end
 
     if @question.save
-      redirect_to questions_path(@question), notice: "New question create!"
+      redirect_to user_path(@question.user), notice: "New question create!"
     else
       flash[:alert] = "The form has been filled out incorrectly"
 
@@ -14,56 +20,71 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.update(question_params)
+    questions_params = params.require(:question).permit(:body, :answer)
+    
+    @question.update(questions_params)
 
     if @question.save
-      redirect_to question_path(@question), notice: 'Question save!'
+      redirect_to user_path(@question.user), notice: 'Question save!'
     else
       render :edit
     end
   end
 
   def destroy
+    @user = @question.user
+
     @question.destroy
 
-    redirect_to questions_path, status: :see_other, notice: 'Question delete!'
+    redirect_to user_path(@user), status: :see_other, notice: 'Question delete!'
   end
 
-  def show
+  def show    
+    @question = Question.find_by(params[:id])
   end
 
+  
+  def index
+    @question = Question.new
+    
+    @questions = Question.order(created_at: :desc)
+  end
+  
+  def new
+    @user = User.find(params[:user_id])
+    
+    @question = Question.new(user: @user)
+  end
+  
+  def edit
+  end
+  
   def visible
     @question.update(hidden: false)
 
-    redirect_to questions_path
-  end
-
-  def index
-    @question = Question.new
-
-    @questions = Question.all
-  end
-
-  def new
-    @question = Question.new
-  end
-
-  def edit
+    redirect_to root_path
   end
   
   def hide
     @question.update(hidden: true)
-
-    redirect_to questions_path
+    
+    redirect_to root_path
   end
 
   private
 
-  def question_params
-    params.require(:question).permit(:body, :user_id)
+  def show_order
+    @question.order(created_at: :desc)
   end
 
-  def set_question
-    @question = Question.find(params[:id])
+  def create_author
+    params.require(:question).permit(:author)
+  end
+
+  def ensure_current_user
+  end
+
+  def set_question_for_current_user
+    @question = current_user.questions.find(params[:id])
   end
 end

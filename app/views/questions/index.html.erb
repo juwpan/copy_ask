@@ -1,16 +1,18 @@
-<div class="container">
-  <p class="mt">
-    <%= link_to "Create new Question", new_question_path, class: 'button button__main' %></p>
-  <p class="mt">
-    <%= render 'form', question: @question %>
-  </p>
-</div>
 <div class="container mt__sm">
   <h2 class="title__lg">
     <%= @questions.count %>
     <%= inclination(@questions.count, 'question', 'questions') %>
   </h2>
 </div>
+
 <div class="mt__sm container">
-  <%= render @questions %>
+ <%=   @user = @question.author_id %>
+  <% if @questions.count == 0 && current_user.present? %>
+    <%= render 'users/user_login' %>
+  <% elsif @questions.count == 0%>
+    <%= render 'users/user_registration' %>
+  <% else %>
+     <%= render @questions %>
+  <% end %>
+
 </div>

@@ -1,8 +1,3 @@
-body {
-  color: #03071E;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
 a,
 button {
   color: #cd5616;
@@ -41,10 +36,22 @@ a:hover {
   color: rgb(162, 17, 17);
 }
 
-.text__decoration {
+a,
+.mr__sm,
+.text__bold {
+  text-decoration: none;
+}
+
+a,
+.mr__sm,
+.text__bold:hover {
   text-decoration: underline;
 }
 
 .text__pre__line {
   white-space: pre-line
+}
+
+.text__dark__red {
+  color: rgb(150, 10, 10)
 }

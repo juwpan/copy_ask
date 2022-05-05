@@ -15,8 +15,7 @@
         <p class="title__sm text__bold"><%= link_to "Ask me!", root_path %></p>
         <div>
           <% if current_user.present? %>
-            <%= content_tag 'span', display_nickname(current_user), class: 'mr__sm text__bold text__decoration' %>
-            <%= link_to "User Settings", edit_user_path(current_user), class: 'button button__yellow mr__sm' %>
+            <%= link_to display_nickname(current_user), user_path(current_user), class: "mr__sm text__bold" %>
             <%= button_to 'Exit', session_path, method: :delete, class: 'button button__yellow' %>
           <% else %>
             <%= link_to "Registration", new_user_path, class: 'button button__yellow mr__sm' %>

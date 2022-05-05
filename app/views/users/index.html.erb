@@ -1,0 +1,9 @@
+<div class="container">
+  <h2 class="title__lg mb__sm text__grey empty__state">All users</h2>
+  <h2 class="title__sm mb__lg empty__state">Who do you want to ask a question?</h2>
+  <div class="user__all" >
+    <% @users.each do |user| %>
+      <p  class="title__sm text__bold" ><%= link_to "@#{user.nickname}", new_question_path(user_id: user.id) %></p>
+    <% end %>
+  </div>
+</div>

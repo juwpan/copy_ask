@@ -9,21 +9,42 @@
 <div class="mb__sm text__pre__line">
   <%= question.body %>
 </div>
+
+<% if question.answer.present? %>
+  <div class="mb__sm text__dark__red">
+    <%= question.answer %>
+  </div>
+<% end %>
+
+
 <div class="text__sm question__footer">
   <div class="text__grey">
+  <% if question.author.present? %>
+  <span>Question from
+  <%= link_to display_nickname(question.author), user_path(question.author_id) %></span>
+  <% end %>
     <%= l(question.created_at, format: :short) %>
   </div>
-  <div>
-    <%= link_to fa_icon('pencil'), edit_question_path(question),
-      title: "Change question" %>
-    <%= link_to fa_icon('trash-o'), question_path(question),
-      data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } %>
-    <% if question.hidden? %>
-      <%= button_to fa_icon('eye-slash'), visible_question_path(question), title: 'Show question?', method: :put %>
-      <span class="opacity"><%= link_to "Question #{question.id}", question_path(question) %></span>
-    <% else %>
-      <%= button_to fa_icon('eye'), hide_question_path(question), title: 'Hidde question?', method: :put %>
-      <%= link_to "Question #{question.id}", question_path(question) %>
-    <% end  %>
-  </div>
+ 
+
+  <% if current_user == question.user %>
+    <div>
+      <% edit_icon = (question.answer.present? ? 'pencil' : 'reply') %>
+      <%= link_to fa_icon(edit_icon), edit_question_path(question),
+        title: "Change question" %>
+
+      <%= link_to fa_icon('trash-o'), question_path(question),
+        data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } %>
+      
+      <% if question.hidden? %>
+        <%= button_to fa_icon('eye'), visible_question_path(question), title: 'Show question?', method: :put %>
+        <%= link_to "Question #{question.id}", question_path(current_user) %>
+      <% else %>
+        <%= button_to fa_icon('eye-slash'), hide_question_path(question), title: 'Hidde question?', method: :put %>
+        <span class="opacity"><%= link_to "Question #{question.id}", question_path(current_user) %></span> 
+      <% end %>
+    </div>
+  <% end %>
+
+
 </div>
