@@ -1,0 +1,25 @@
+<% if question.errors.any? %>
+  <div class="mt">
+    <% question.errors.full_messages.each do |message| %>
+      <p class="mb__sm text__red"><%= message %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_with model: question, data: {turbo: false} do |form| %>
+  <%= form.hidden_field :user_id %>
+
+  <p><%= form.label :body, 'Question text' %></p>
+  <p><%= form.text_area :body, rows: 5, class: 'form__text__area' %></p>
+  
+  <% if question.persisted? %>
+    <p class="mt"><%= form.label :answer, 'Answer' %></p>
+    <p><%= form.text_area :answer, rows: 5, class: 'form__text__area' %></p>
+  <% end %>
+
+  <div class="back">
+    <p class="mt"><%= form.submit "Save", class: 'button button__main' %></p>
+    <p class="mt ml"> <%= 'or'  %></p>
+    <%= link_to 'back', :back, class: 'ml'  %>
+  </div>
+<% end %>

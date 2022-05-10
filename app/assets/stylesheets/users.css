@@ -1,0 +1,43 @@
+.users__box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.users__box__user {
+  flex-basis: 100px;
+  flex-grow: 0;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.users__box__user a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.users__box__user__bg0 {
+  border: 1px solid #d00000;
+  background-color: #fff;
+}
+
+.users__box__user__bg1 {
+  border: 1px solid #03071E;
+  background-color: #fff;
+}
+
+.users__box__user__bg2 {
+  border: 1px solid #ffba08;
+  background-color: #fff;
+}
+
+.users__box__user__bg3 {
+  border: 1px solid #6A040F;
+  background-color: #fff;
+}
+
+.users__box__user__bg4 {
+  border: 1px solid #f48c06;
+  background-color: #fff;
+}
