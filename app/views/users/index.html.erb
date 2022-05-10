@@ -1,10 +1,19 @@
-<div class="container mt__sm">
-  <h2 class="title__lg mb empty__state">All users</h2>
-  <h2 class="title__sm text__grey mb__lg empty__state">Who to ask a question?</h2>
-
- <div class="users__box">
-    <% @users.each do |user| %>
-      <%= render partial: 'users/user_avatar', locals: {user: user} %>
-    <% end %>
+<% if current_user.present? %>
+  <div class="container mt__sm">
+    <h2 class="title__lg mb empty__state">All users</h2>
+    <h2 class="title__sm text__grey mb__lg empty__state">Who to ask a question?</h2>
+    <div class="users__box">
+      <% @users.each do |user| %>
+        <%= render partial: 'users/user_avatar', locals: {user: user} %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="container empty__state">
+    <h2 class="title__lg text__grey">No users yet....</h2>
+    <h2 class="title__sm text__grey mb__lg empty__state">Sign up be the first</h2>
+    <%= image_tag("user.png", alt: "Ask me?", class: "menu__icon__opacity") %>
+    <h2 class="text__grey title__sm mb__md">Registration and send a message to your new friends</h2>
+    <%= link_to "Registration", new_user_path, class: "button button__blue" %>
+  </div>
+<% end %>

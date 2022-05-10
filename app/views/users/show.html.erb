@@ -29,13 +29,12 @@
   </h2>
 </div>
 
-
 <div class="mt__sm container">
-  <% if current_user == @question.user && @questions.count == 0  %>
-    <%= render "user_asks" %>
-  <% else %>
+  <% if current_user.present? %>
     <% @questions.each do |question| %>
       <%= render question %>
     <% end %>
+  <% else %>
+    <%= render 'questions/form', question: @question %>
   <% end %>
 </div>

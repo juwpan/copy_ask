@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :hidden?, only: %i[hide visible]
 
   def create
-    question_params = params.require(:question).permit(:body, :user_id, :author)
+    question_params = params.require(:question).permit(:body, :user_id)
 
     @question = Question.create(question_params)
     
@@ -69,9 +69,6 @@ class QuestionsController < ApplicationController
   
   private
   
-  def ensure_current_user
-  end
-
   def set_question_for_current_user
     @question = current_user.questions.find(params[:id])
   end

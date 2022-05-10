@@ -38,7 +38,7 @@ a:hover {
 }
 
 .text__red {
-  color: rgb(162, 17, 17);
+  color: rgb(120, 13, 13);
 }
 
 a,
@@ -58,5 +58,5 @@ a,
 }
 
 .text__dark__red {
-  color: rgb(150, 10, 10)
+  color: rgb(121, 11, 11)
 }

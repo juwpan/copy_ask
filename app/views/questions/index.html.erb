@@ -2,13 +2,15 @@
   <%= render 'users/users_choice' %>
 </div>
 
-<div class="container mt__sm">
-  <h2 class="title__lg">
-    <%= inclination(@questions.count, 'Last', 'Last') %>
-    <%= @questions.count %>
-    <%= inclination(@questions.count, 'Question', 'Questions') %>
-  </h2>
-</div>
+<% if @users.count == 0 %>
+  <div class="container mt__sm">
+    <h2 class="title__lg">
+      <%= inclination(@questions.count, 'Last', 'Last') %>
+      <%= @questions.count %>
+      <%= inclination(@questions.count, 'Question', 'Questions') %>
+    </h2>
+  </div>
+<% end %>
 
 <% @questions.each do |question| %>
   <div class="mt__sm container">
