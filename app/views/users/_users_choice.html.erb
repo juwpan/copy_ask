@@ -1,0 +1,19 @@
+<% if @users.count == 0 %>
+  <h2 class="title__lg mb">
+    No new users
+    </h2>
+      <div class="users__box">
+    <% @users.each do |user| %>
+      <%= render partial: 'users/user_avatar', locals: {user: user} %>
+    <% end %>
+  </div>
+<% else %>
+  <h2 class="title__lg mb">
+    All users
+  </h2>
+   <div class="users__box">
+    <% @users.each do |user| %>
+      <%= render partial: 'users/user_avatar', locals: {user: user} %>
+    <% end %>
+  </div>
+<% end %>
