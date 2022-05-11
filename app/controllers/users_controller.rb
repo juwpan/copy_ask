@@ -49,14 +49,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @questions = @user.questions   
+    @questions = @user.questions
     @question = Question.new(user: @user)
   end
 
   private
 
   def set_user
-    @user = User.friendly.find(params[:nickname])
+    @user = User.friendly.find_by(nickname: params[:nickname])
   end
 
   def user_params

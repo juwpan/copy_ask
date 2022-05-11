@@ -1,5 +1,7 @@
 <div class="container">
   <h2 class="title__lg mb__sm">New questions</h2>
-  <p class="mb">for <%= link_to display_nickname(@user), user_path(@user) %></p>
+  <% unless display_nickname(@user) == nil %>
+    <p class="mb">for <%= link_to display_nickname(@user), user_path(@user) %></p>
+  <% end %>
   <%= render 'form', question: @question %>
 </div>

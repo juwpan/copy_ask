@@ -5,7 +5,7 @@
 img.menu__icon__opacity {
   filter: alpha(Opacity=75);
   opacity: 0.75;
-  width: 300px;
+  width: 500px;
 }
 
 .empty__state {

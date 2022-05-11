@@ -1,7 +1,6 @@
 <div class="user__box">
   <h2 class="title__lg mt__lg"><%= @user.name %></h2>
 
-
   <div class="mt">
     <%= render partial: 'users/user_avatar', locals: {user: @user} %>
   </div>
@@ -17,7 +16,7 @@
 
 <div class="container">
   <% if current_user.present? %>
-    <%= link_to "Ask me", new_question_path(user_id: @user.id), class: "button button__yellow" %>
+    <%= link_to "Ask me", new_question_path(user_id: @user.nickname), class: "button button__yellow" %>
     <p class="mt"><%= render 'questions/form', question: @question %></p>
   <% end %>
 </div>
@@ -29,12 +28,14 @@
   </h2>
 </div>
 
+<% unless current_user.present? %>
+  <div class="mt__sm container">
+      <%= render 'questions/form', question: @question %>
+  </div>
+<% end %>
+
 <div class="mt__sm container">
-  <% if current_user.present? %>
-    <% @questions.each do |question| %>
-      <%= render question %>
-    <% end %>
-  <% else %>
-    <%= render 'questions/form', question: @question %>
+  <% @questions.each do |question| %>
+    <%= render question %>
   <% end %>
 </div>

@@ -1,5 +1,7 @@
 module UsersHelper
   def display_nickname(user)
-    "@#{user.nickname}"
+    unless user == nil
+      "@#{user.nickname}"
+    end
   end
 end

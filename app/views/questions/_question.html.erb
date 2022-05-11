@@ -20,7 +20,7 @@
   <div class="text__grey">
     <% if question.author.present? %>
       <span>Question from
-        <%= link_to display_nickname(question.author), user_path(question.author_id) %></span>
+        <%= link_to "@#{question.author.name}" , user_path(question.author) %></span>
         <% else %>
         <p>Noname</p>
     <% end %>

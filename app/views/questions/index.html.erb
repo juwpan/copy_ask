@@ -15,15 +15,15 @@
 <% @questions.each do |question| %>
   <div class="mt__sm container">
     <p class="mb text__sm text__grey">
-      Question <%= link_to "##{question.id}", question_path(question) %>
+      Question <%= link_to "##{question.id}"%>
       for user <%= link_to "@#{question.user.nickname}", user_path(question.user) %>
     </p>
       <%= render question %>
   </div>
 <% end %>
 
-<div class="mt__sm container">
-  <% if @questions.count == 0 %>
+<% if @questions.count == 0 %>
+  <div class="mt__sm container">
     <%= render 'users/user_login' %>
-  <% end %>
-</div>
+  </div>
+<% end %>
