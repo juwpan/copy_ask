@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      UserMailer.new_user(@user).deliver_now
       session[:user_id] = @user.id
       
       redirect_to root_path, notice: I18n.t("controller.registration_completed_successfully")
@@ -29,6 +30,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      UserMailer.new_user_update(@user).deliver_now
+
       redirect_to root_path, notice: I18n.t("controller.update_user_data")
     else
       flash.now[:alert] = I18n.t("controller.save_error")

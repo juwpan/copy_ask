@@ -15,3 +15,15 @@ ru:
     question_save: Вопрос сохранён!
     question_delete: Вопрос удалён!
 
+  user_mailer:
+    new_user:
+      welcome_new: Новый пользователь
+      welcome_to_site: Добро пожаловать на сайт!
+    new_user_update:
+      update_account: Обновление аккаунта
+      user_update_to_account: Обновление данных аккаунта
+
+  # views:
+  #   mailer:
+  #     welcome_site: Добро пожаловать!
+  #     registration_success: Вы успешно прошли регистрацию на сайте.
