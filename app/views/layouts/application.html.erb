@@ -12,7 +12,7 @@
   <body>
     <div class="wrapper">
       <div class="navbar" style="background: <%= current_user&.color || '#370617' %>">
-        <p class="title__sm text__bold"><%= link_to "Ask me!", root_path %></p>
+        <p class="title__sm text__bold"><%= link_to t(".ask_me!"), root_path %></p>
         <div>
           <% if current_user.present? %>
             <%= link_to display_nickname(current_user), user_path(current_user), class: "mr__sm text__bold" %>

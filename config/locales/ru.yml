@@ -23,6 +23,9 @@ ru:
       update_account: Обновление аккаунта
       user_update_date_account: Обновление данных аккаунта
 
+  layouts:
+    application:
+      ask_me!: Спроси меня!
   # views:
   #   mailer:
   #     welcome_site: Добро пожаловать!
