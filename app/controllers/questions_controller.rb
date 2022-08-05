@@ -11,9 +11,9 @@ class QuestionsController < ApplicationController
     end
 
     if @question.save
-      redirect_to user_path(@question.user), notice: "New question create!"
+      redirect_to user_path(@question.user), notice: I18n.t("controller.new_question_create!")
     else
-      flash[:alert] = "The form has been filled out incorrectly"
+      flash[:alert] = I18n.t("controller.the_form_has_been_filled_out_incorrectly")
 
       render :new
     end
@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
     @question.update(questions_params)
 
     if @question.save
-      redirect_to user_path(@question.user), notice: 'Question save!'
+      redirect_to user_path(@question.user), notice: I18n.t("controller.question_save")
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
 
     @question.destroy
 
-    redirect_to user_path(@user), status: :see_other, notice: 'Question delete!'
+    redirect_to user_path(@user), status: :see_other, notice: I18n.t("controller.question_delete")
   end
 
   def show    

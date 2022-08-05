@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_with_alert
-    redirect_to root_path, alert: "You are forbidden"
+    redirect_to root_path, alert: I18n.t("controller.you_are_forbidden")
   end
 end

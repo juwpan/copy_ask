@@ -67,4 +67,3 @@ bundle exec rails db:create
 ```
 bundle exec rspec
 ```
----

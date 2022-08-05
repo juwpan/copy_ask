@@ -1,0 +1,17 @@
+ru:
+
+  controller:
+    registration_completed_successfully: Регистрация успешно завершена
+    registration_fields_filled_out_incorrectly: Поля регистрации заполнены не правильно
+    you_are_forbidden: Вам запрещено
+    update_user_data: Данные пользователя обновлены
+    save_error: Сохранение не удалось
+    account_deleted: Аккаунт удалён
+    your_login: Вы вошли в систему
+    error_email_address_or_password: Неправильная почта или пароль
+    you_are_log_out: Вы вышли из системы
+    new_question_create!: Новый вопрос создан
+    the_form_has_been_filled_out_incorrectly: Форма заполнена неправильно
+    question_save: Вопрос сохранён!
+    question_delete: Вопрос удалён!
+

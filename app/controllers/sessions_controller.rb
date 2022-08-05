@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
     if user.present?
       session[:user_id] = user.id
 
-      redirect_to root_path, notice: 'Your login'
+      redirect_to root_path, notice: I18n.t("controller.your_login")
     else
-      flash.now[:alert] = 'Error email address or password'
+      flash.now[:alert] = I18n.t("controller.error_email_address_or_password")
 
       render :new
     end
@@ -21,6 +21,6 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
 
-    redirect_to root_path notice: "You are log out"
+    redirect_to root_path notice: I18n.t("controller.you_are_log_out")
   end
 end

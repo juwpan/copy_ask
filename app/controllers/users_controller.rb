@@ -19,9 +19,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       
-      redirect_to root_path, notice: "Registration completed successfully"
+      redirect_to root_path, notice: I18n.t("controller.registration_completed_successfully")
     else
-      flash.now[:alert] = "Registration fields filled out incorrectly"
+      flash.now[:alert] = I18n.t("controller.registration_fields_filled_out_incorrectly")
 
       render :new
     end
@@ -29,9 +29,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to root_path, notice: "Update user data"
+      redirect_to root_path, notice: I18n.t("controller.update_user_data")
     else
-      flash.now[:alert] = "Save error"
+      flash.now[:alert] = I18n.t("controller.save_error")
 
       render :edit
     end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
     session.delete(:user_id)
 
-    redirect_to root_path, notice: "Account deleted"
+    redirect_to root_path, notice: I18n.t("controller.account_deleted")
   end
 
   def show

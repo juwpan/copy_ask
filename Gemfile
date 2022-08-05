@@ -2,6 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "font-awesome-rails"
+gem 'rails-i18n', '~> 7.0.0'
 
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 
