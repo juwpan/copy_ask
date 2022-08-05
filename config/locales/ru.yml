@@ -21,7 +21,7 @@ ru:
       welcome_to_site: Добро пожаловать на сайт!
     new_user_update:
       update_account: Обновление аккаунта
-      user_update_to_account: Обновление данных аккаунта
+      user_update_date_account: Обновление данных аккаунта
 
   # views:
   #   mailer:
