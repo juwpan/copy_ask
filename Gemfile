@@ -21,13 +21,13 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem "letter_opener", "~> 1.8.1"
-  gem "puma", "~> 5.0"
   gem "sqlite3", "~> 1.4"
 
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :production do
+  gem "puma", "~> 5.0"
   gem "pg"
 end
 

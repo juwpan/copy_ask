@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
       UserMailer.new_user(@user).deliver_now
+      
       session[:user_id] = @user.id
       
       redirect_to root_path, notice: I18n.t("controller.registration_completed_successfully")

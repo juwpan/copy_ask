@@ -1,6 +1,4 @@
 class UserMailer < ApplicationMailer
-  default from: Rails.application.credentials.dig(:mj, :SENDER_EMAIL)
-
   def new_user(user)
     @user = user.nickname
     @url = "http://localhost:3000"
