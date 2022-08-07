@@ -1,5 +1,5 @@
 Добро пожаловать, <% @user.nickname.capitalize %>!
 Вы успешно прошли регистрацию на сайте.
 
-Для входа на сайт подтвердите вашу почту: <%= link_to (@url), confirm_email_user_url(@user.confirm_token) %>.
+Для входа на сайт подтвердите вашу почту: <%= link_to "Cop_Ask", confirm_email_user_url(@user.confirm_token) %>.
 Благодарим что вы с нами и удачного дня!

@@ -30,19 +30,20 @@ class UsersController < ApplicationController
   end
 
   def confirm_email
-    @user = User.find_by(params[:confirm_token])
+    @user = User.find_by_confirm_token(params[:id])
 
-      if @user.email_confirmed == false
-        @user.email_activate
-        flash[:success] = t(".welcome")
+    if @user.email_confirmed == false
+      @user.email_activate
 
-        redirect_to root_path
-      else
-        flash[:alert] = t(".error") if @user.email_confirmed == false
-        flash[:alert] = t(".success_confirmed_email") if @user.email_confirmed == true
+      flash[:notice] = t(".welcome")
+      session[:user_id] = @user.id
 
-        redirect_to root_path
-      end
+      redirect_to root_path
+    else
+      flash[:alert] = t(".success_confirmed_email") 
+
+      redirect_to root_path
+    end
   end
 
   def update 

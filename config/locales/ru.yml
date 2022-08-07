@@ -2,7 +2,7 @@ ru:
 
   users:
     confirm_email:
-      welcome: Добро пожаловать.
+      welcome: Ваша почта подтверждена. Вы вошли в систему
       error: Что-то пошло не так и ваша почта  не подтверждена
       success_confirmed_email: Ваша почта уже подтверждена
     create:
