@@ -1,14 +1,16 @@
 class UserMailer < ApplicationMailer
-  def new_user(user)
-    @user = user.nickname
-    @url = "http://localhost:3000"
+  default from: Rails.application.credentials.dig(:mj, :SENDER_EMAIL)
 
-    mail(to: user.email, subject: t(".welcome_new") + ": #{ user.email }")
+  def new_user(user)
+    @user = user
+    @url = Rails.application.credentials.dig(:mj, :heroku_sait)
+
+    mail(to: "#{user.name} <#{user.email}>", subject: "please_confirm_your_registration")
   end
 
   def new_user_update(user)
-    @user = user.nickname
-    @url = "http://localhost:3000"
+    @user = user
+    @url = Rails.application.credentials.dig(:mj, :heroku_sait)
 
     mail(to: user.email, subject: t(".update_account") + ": #{ user.email }")
   end

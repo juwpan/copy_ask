@@ -1,10 +1,15 @@
+require 'securerandom'
+
 class User < ApplicationRecord
   has_secure_password
 
+  before_create :confirm_token do
+    self.confirm_token = SecureRandom.uuid if self.confirm_token.blank? 
+  end
+  
   before_save :downcase
 
   has_many :questions, dependent: :delete_all
-  
 
   validates :color,
     format: { with: /\A#\h{3}{1,2}\z/ }
@@ -18,5 +23,12 @@ class User < ApplicationRecord
   def downcase
     nickname.downcase!
     email.downcase!
+  end
+
+  def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    
+    save!(validate: false)
   end
 end

@@ -1,15 +1,19 @@
 ru:
 
+  users:
+    confirm_email:
+      welcome: Добро пожаловать.
+      error: Что-то пошло не так и ваша почта  не подтверждена
+      success_confirmed_email: Ваша почта уже подтверждена
+    create:
+      registration_fields_filled_out_incorrectly: Поля регистрации заполнены не правильно
+      registration_completed_successfully: Регистрация успешно завершена. Подтвердите свою почту.
+
   controller:
-    registration_completed_successfully: Регистрация успешно завершена
-    registration_fields_filled_out_incorrectly: Поля регистрации заполнены не правильно
     you_are_forbidden: Вам запрещено
     update_user_data: Данные пользователя обновлены
     save_error: Сохранение не удалось
     account_deleted: Аккаунт удалён
-    your_login: Вы вошли в систему
-    error_email_address_or_password: Неправильная почта или пароль
-    you_are_log_out: Вы вышли из системы
     new_question_create!: Новый вопрос создан
     the_form_has_been_filled_out_incorrectly: Форма заполнена неправильно
     question_save: Вопрос сохранён!
@@ -19,13 +23,23 @@ ru:
     new_user:
       welcome_new: Новый пользователь
       welcome_to_site: Добро пожаловать на сайт!
+      site: Спроси меня
     new_user_update:
       update_account: Обновление аккаунта
       user_update_date_account: Обновление данных аккаунта
+      site: Спроси меня
 
   layouts:
     application:
       ask_me!: Спроси меня!
+
+  sessions:
+    create:
+      please_active_your_account: Подтвердите свою почту
+      your_login: Вы вошли в систему
+      error_email_address_or_password: Неправильная почта или пароль
+    destroy:
+      you_are_log_out: Вы вышли из системы
   # views:
   #   mailer:
   #     welcome_site: Добро пожаловать!

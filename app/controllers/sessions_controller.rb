@@ -7,12 +7,18 @@ class SessionsController < ApplicationController
 
     user = User.find_by(email: user_params[:email])&.authenticate(user_params[:password])
 
-    if user.present?
+    # debugger
+    
+    if user != nil && user.email_confirmed == true
       session[:user_id] = user.id
+        
+      redirect_to root_path, notice: t(".your_login")
+    elsif user == nil
+      flash[:alert] = t(".error_email_address_or_password")
 
-      redirect_to root_path, notice: I18n.t("controller.your_login")
-    else
-      flash.now[:alert] = I18n.t("controller.error_email_address_or_password")
+      render :new
+    elsif user != nil && user.email_confirmed == false
+      flash[:alert] = t(".please_active_your_account")
 
       render :new
     end
@@ -21,6 +27,6 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
 
-    redirect_to root_path notice: I18n.t("controller.you_are_log_out")
+    redirect_to root_path, notice: t(".you_are_log_out")
   end
 end

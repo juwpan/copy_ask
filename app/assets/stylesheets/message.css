@@ -4,11 +4,13 @@
 }
 
 .message__notice {
-  background-color: antiquewhite;
-  border-color: bisque;
+  background-color: rgb(91, 147, 12);
+  border-color: rgb(191, 213, 23);
+  padding: 20px;
 }
 
 .message__alert {
   background-color: rgb(211, 136, 38);
   border-color: rgb(193, 27, 27);
+  padding: 20px;
 }

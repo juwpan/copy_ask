@@ -15,21 +15,37 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    
     if @user.save
       UserMailer.new_user(@user).deliver_now
+
+      flash[:notice] = t(".registration_completed_successfully")
       
-      session[:user_id] = @user.id
-      
-      redirect_to root_path, notice: I18n.t("controller.registration_completed_successfully")
+      redirect_to root_path
     else
-      flash.now[:alert] = I18n.t("controller.registration_fields_filled_out_incorrectly")
+      flash.now[:alert] = t(".registration_fields_filled_out_incorrectly")
 
       render :new
     end
   end
 
-  def update
+  def confirm_email
+    @user = User.find_by(params[:confirm_token])
+
+      if @user.email_confirmed == false
+        @user.email_activate
+        flash[:success] = t(".welcome")
+
+        redirect_to root_path
+      else
+        flash[:alert] = t(".error") if @user.email_confirmed == false
+        flash[:alert] = t(".success_confirmed_email") if @user.email_confirmed == true
+
+        redirect_to root_path
+      end
+  end
+
+  def update 
     if @user.update(user_params)
       UserMailer.new_user_update(@user).deliver_now
 

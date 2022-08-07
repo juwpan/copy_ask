@@ -15,6 +15,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "bcrypt", "~> 3.1.7"
 
+gem 'securerandom'
+
 gem 'mailjet'
 
 gem "bootsnap", require: false

@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do 
+    member do
+      get 'confirm_email'
+    end
+  end
+
   resource :session, only: %i[new create destroy]
-  resources :users
+  # resources :users
 end
