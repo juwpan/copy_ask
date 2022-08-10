@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_09_081704) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_10_063026) do
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "hashtag_appearances", force: :cascade do |t|
     t.integer "question_id"
     t.integer "hashtag_id"
@@ -48,8 +59,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_081704) do
     t.string "color", default: "#370617"
     t.boolean "email_confirmed", default: false
     t.string "confirm_token"
+    t.string "slug"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["nickname"], name: "index_users_on_nickname", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
   add_foreign_key "hashtag_appearances", "hashtags"

@@ -1,27 +1,27 @@
-<% @hashtags.each do |hashtag|%>
-  <div class="mt-sm container">
-    <%=  link_to hashtag.name, hashtags_path %>
+<div class="container">
+  <%= render 'users/users_choice' %>
+</div>
+
+<% if @users.count == 0 %>
+  <div class="container mt__sm">
+    <h2 class="title__lg">
+      <%= inclination(@questions.count, 'Last', 'Last') %>
+      <%= @questions.count %>
+      <%= inclination(@questions.count, 'Question', 'Questions') %>
+    </h2>
   </div>
 <% end %>
-
-<%= @hashtags %>
-
-<div class="container mt__sm">
-  <h2 class="title__lg">
-    <%= @questions.count %>
-    <%= inclination(@questions.count, 'question', 'questions') %>
-  </h2>
-</div>
-
-
-<div class="mt__sm container">
- <%=   @user = @question.author_id %>
-  <% if @questions.count == 0 && current_user.present? %>
+<% @questions.each do |question| %>
+  <div class="mt__sm container">
+    <p class="mb text__sm text__grey">
+      Question <%= link_to "##{question.id}"%>
+      for user <%= link_to "@#{question.user.nickname}", user_path(question.user) %>
+    </p>
+      <%= render question %>
+  </div>
+<% end %>
+<% if @questions.count == 0 %>
+  <div class="mt__sm container">
     <%= render 'users/user_login' %>
-  <% elsif @questions.count == 0%>
-    <%= render 'users/user_registration' %>
-  <% else %>
-     <%= render @questions %>
-  <% end %>
-
-</div>
+  </div>
+<% end %>

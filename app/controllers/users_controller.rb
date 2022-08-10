@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def update 
+  def update
     if @user.update(user_params)
       UserMailer.new_user_update(@user).deliver_now
 
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find_by(nickname: params[:nickname])
   end
 
   def user_params

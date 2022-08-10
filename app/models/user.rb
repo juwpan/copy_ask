@@ -3,13 +3,17 @@ require 'securerandom'
 class User < ApplicationRecord
   has_secure_password
 
+  extend FriendlyId
+  
   before_create :confirm_token do
     self.confirm_token = SecureRandom.uuid if self.confirm_token.blank? 
   end
   
   before_save :downcase
-
+  
   has_many :questions, dependent: :delete_all
+  
+  friendly_id :nickname, use: :slugged
 
   validates :color,
     format: { with: /\A#\h{3}{1,2}\z/ }
@@ -19,6 +23,12 @@ class User < ApplicationRecord
     
   validates :nickname, presence: true, uniqueness: true,
     format: { with: /\A[a-zA-Z0-9_]{1,40}\z/ }
+
+  private
+
+  def should_generate_new_friendly_id?
+    nickname_changed?
+  end
 
   def downcase
     nickname.downcase!
