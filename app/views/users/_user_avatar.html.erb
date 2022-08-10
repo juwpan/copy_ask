@@ -1,0 +1,5 @@
+<div class="users-box-user rounded">
+  <a href="<%= user_path(user) %>">
+    <%= image_tag user.gravatar_url, title: "@#{user.nickname}", class: 'rounded' %>
+  </a>
+</div>

@@ -1,6 +1,9 @@
 <div class="user__box">
-  <h2 class="title__lg mt__lg"><%= @user.name %></h2>
-  
+
+<div class="mt">
+  <%= render partial: 'users/user_avatar', locals: { user: @user } %>
+</div>
+
   <% if current_user == @user %>
     <p class="mt mb__lg">
       <%= link_to fa_icon('pencil'), edit_user_path(@user) %>
@@ -8,10 +11,8 @@
   <% end %>
 
 
-  <p class="text__bold mt mb__lg"><%= @user.nickname %></p>
+  <p class="text__bold mt mb__lg">@<%= @user.nickname %></p>
   </div>
-
-
 
 <div class="container">
   <%= link_to "Ask me", new_question_path(user_id: @user.id),

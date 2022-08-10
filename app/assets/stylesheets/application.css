@@ -12,9 +12,8 @@
  *= require hidden
  *= require message
  *= require user
+ *= require users
  *= remove include bootstrap-sprockets
- *
  *
  *= require question
  */
- 
