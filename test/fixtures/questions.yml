@@ -1,0 +1,9 @@
+question1:
+  user_id: 1
+  body: Как дела?
+  answer:
+
+question2:
+  user_id: 1
+  body: Как настроение?
+  answer:

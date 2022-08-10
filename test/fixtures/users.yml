@@ -1,0 +1,8 @@
+vova:
+  id: 1
+  email: x@mail.ru
+  name: x
+  nickname: x
+  password_digest: <%= BCrypt::Password.create("1", cost: 5) %>
+  email_confirmed: <%= true %>
+  

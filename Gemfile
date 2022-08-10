@@ -8,6 +8,8 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 gem "font-awesome-rails"
 gem 'rails-i18n', '~> 7.0.0'
 
+gem 'friendly_id', '~> 5.4.0'
+
 gem "sprockets-rails"
 gem "importmap-rails"
 gem "turbo-rails"

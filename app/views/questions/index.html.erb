@@ -1,9 +1,18 @@
+<% @hashtags.each do |hashtag|%>
+  <div class="mt-sm container">
+    <%=  link_to hashtag.name, hashtags_path %>
+  </div>
+<% end %>
+
+<%= @hashtags %>
+
 <div class="container mt__sm">
   <h2 class="title__lg">
     <%= @questions.count %>
     <%= inclination(@questions.count, 'question', 'questions') %>
   </h2>
 </div>
+
 
 <div class="mt__sm container">
  <%=   @user = @question.author_id %>

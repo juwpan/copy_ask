@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get 'confirm_email'
     end
   end
-
+  
   resource :session, only: %i[new create destroy]
-  # resources :users
+  resource :hashtags, only: %i[show]
 end

@@ -1,0 +1,11 @@
+question1_mood:
+  question: question1
+  hashtag: mood
+
+question2_mood:
+  question: question2
+  hashtag: mood
+
+question2_food:
+  question: question2
+  hashtag: food

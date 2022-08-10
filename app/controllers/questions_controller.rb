@@ -48,6 +48,8 @@ class QuestionsController < ApplicationController
     @question = Question.new
     
     @questions = Question.order(created_at: :desc)
+
+    @hashtags = Hashtag.all
   end
   
   def new

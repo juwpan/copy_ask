@@ -1,0 +1,11 @@
+<div class="container">
+  <h2><%= link_to @hashtag.name, hashtags_path(@hashtag) %></h2>
+
+<% @hashtag.questions.each do |question| %>
+    <%= render question %>
+<% end %> 
+
+<%= @hashtag.name %>
+
+  <p class="mt"><%= link_to "All questions", questions_path %></p>
+</div>
