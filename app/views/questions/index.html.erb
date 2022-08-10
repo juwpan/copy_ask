@@ -1,10 +1,14 @@
-<% @hashtags.each do |hashtag|%>
+<%
+=begin%>
+ <% @hashtags.each do |hashtag|%>
   <div class="mt-sm container">
     <%=  link_to hashtag.name, hashtags_path %>
   </div>
 <% end %>
 
-<%= @hashtags %>
+<%= @hashtags %> 
+<%
+=end%>
 
 <div class="container mt__sm">
   <h2 class="title__lg">
@@ -15,7 +19,11 @@
 
 
 <div class="mt__sm container">
- <%=   @user = @question.author_id %>
+ <%
+=begin%>
+ <%=  @question.author unless  @question.author == nil %> 
+<%
+=end%>
   <% if @questions.count == 0 && current_user.present? %>
     <%= render 'users/user_login' %>
   <% elsif @questions.count == 0%>

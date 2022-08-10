@@ -25,4 +25,13 @@ db!:
 	rails db:drop db:create db:migrate 
 	rails db:fixtures:load
 
+bdbm:
+	bundle exec rails db:migrate
+
+b:
+	bundle install
+
+key:
+	EDITOR=nano rails credentials:edit
+
 .PHONY: db test

@@ -1,5 +1,9 @@
 ru:
 
+  questions:
+    question:
+      question_from: вопрос для
+
   users:
     confirm_email:
       welcome: Ваша почта подтверждена. Вы вошли в систему

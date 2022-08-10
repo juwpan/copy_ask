@@ -34,6 +34,19 @@ $ git clone https://github.com/juwpan/copy_ask.git
 $ cd copy_ask
 ```
 
+### Создание ключей
+
+```
+EDITOR=<ваш редактор> rails credentials:edit
+```
+
+Будет созданы файлы **master.key** и **credentials.yml.enc**
+
+### Пропишите в файл *credentials.yml.enc* свои переменные окружения
+
+```
+EDITOR=<ваш редактор> rails credentials:edit
+
 ### Установка зависимостей
 
 ```

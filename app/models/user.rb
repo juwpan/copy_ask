@@ -9,7 +9,7 @@ class User < ApplicationRecord
     self.confirm_token = SecureRandom.uuid if self.confirm_token.blank? 
   end
   
-  before_save :downcase
+  before_validation :downcase
   
   has_many :questions, dependent: :delete_all
   
@@ -24,21 +24,18 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true,
     format: { with: /\A[a-zA-Z0-9_]{1,40}\z/ }
 
-  private
-
-  def should_generate_new_friendly_id?
-    nickname_changed?
-  end
-
-  def downcase
-    nickname.downcase!
-    email.downcase!
-  end
 
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil
     
     save!(validate: false)
+  end
+
+  private
+  
+  def downcase
+    nickname.downcase!
+    email.downcase!
   end
 end

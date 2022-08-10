@@ -1,15 +1,16 @@
 class QuestionsController < ApplicationController
-  before_action :set_question_for_current_user, only: %i[edit update destroy hide visible]
+  before_action :ensure_current_user, only: %i[update destroy edit]
+  before_action :set_question_for_current_user, only: %i[edit update destroy]
+  before_action :hidden?, only: %i[hide visible]
 
   def create
     questions_params = params.require(:question).permit(:body, :user_id)
     
     @question = Question.new(questions_params)
-    
-    if @question.author_id == nil
-      @question.author_id = current_user.id
-    end
 
+    @question.author = current_user
+    
+    
     if @question.save
       redirect_to user_path(@question.user), notice: I18n.t("controller.new_question_create!")
     else
@@ -40,21 +41,19 @@ class QuestionsController < ApplicationController
   end
 
   def show    
-    @question = Question.find_by(params[:id])
+    @question = Question.find(params[:id])
   end
-
+  
   
   def index
-    @question = Question.new
-    
-    @questions = Question.order(created_at: :desc)
+    @questions = Question.order(created_at: :desc).first(10)
+    @users = User.order(created_at: :desc).last(10)
 
     @hashtags = Hashtag.all
   end
   
   def new
-    @user = User.find(params[:user_id])
-    
+    @user = User.friendly.find(params[:user_id])
     @question = Question.new(user: @user)
   end
   
@@ -75,18 +74,15 @@ class QuestionsController < ApplicationController
 
   private
 
-  def show_order
-    @question.order(created_at: :desc)
-  end
-
-  def create_author
-    params.require(:question).permit(:author)
+  def set_question_for_current_user
+    @question = current_user.questions.find(params[:id])
   end
 
   def ensure_current_user
+    redirect_with_alert unless current_user.present?
   end
 
-  def set_question_for_current_user
-    @question = current_user.questions.find(params[:id])
+  def hidden?
+    @question = Question.find(params[:id])
   end
 end
