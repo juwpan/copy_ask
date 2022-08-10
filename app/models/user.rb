@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_secure_password
 
   extend FriendlyId
+  include Gravtastic
+  
+  gravtastic
   
   before_create :confirm_token do
     self.confirm_token = SecureRandom.uuid if self.confirm_token.blank? 

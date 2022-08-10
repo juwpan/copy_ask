@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 class="title__lg mb__sm text__grey empty__state"><%= t('.all_users') %></h2>
+  <div class="user__all" >
+    <% @users.each do |user| %>
+      <p  class="title__sm text__bold" ><%= link_to "@#{user.nickname}", user_path(user.id) %></p>
+    <% end %>
+  </div>
+</div>

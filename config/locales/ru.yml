@@ -3,8 +3,13 @@ ru:
   questions:
     question:
       question_from: вопрос для
+    users:
+      who_do_you_want_to_ask_a_question?: Кому вы хотите задать вопрос?
+      all_users: Вновь прибывшие
 
   users:
+    index:
+      who_do_you_want_to_ask_a_question?: Кому вы хотите задать вопрос?
     confirm_email:
       welcome: Ваша почта подтверждена. Вы вошли в систему
       error: Что-то пошло не так и ваша почта  не подтверждена

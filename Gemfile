@@ -9,6 +9,7 @@ gem "font-awesome-rails"
 gem 'rails-i18n', '~> 7.0.0'
 
 gem 'friendly_id', '~> 5.4.0'
+gem 'gravtastic', '~> 3.2.6'
 
 gem "sprockets-rails"
 gem "importmap-rails"
