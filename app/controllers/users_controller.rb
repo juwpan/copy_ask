@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.friendly.find_by(nickname: params[:nickname])
+    @user = User.friendly.find(params[:id])
   end
 
   def user_params

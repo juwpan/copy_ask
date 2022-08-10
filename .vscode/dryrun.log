@@ -1,5 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/juwpan/Work/copy_ask'
-rails s
-make: Leaving directory '/home/juwpan/Work/copy_ask'
- 
