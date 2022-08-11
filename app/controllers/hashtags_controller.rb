@@ -1,7 +1,13 @@
 class HashtagsController < ApplicationController
+  before_action :set_user, only: %i[show]
+  
   def show
-    @hashtag = Hashtag.find_by(params[:id])
-    
-    @question = @hashtag.questions
+    @questions = @hashtag.questions
+  end
+
+  private
+
+  def set_user
+    @hashtag = Hashtag.friendly.find(params[:id])
   end
 end

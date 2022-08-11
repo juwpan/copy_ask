@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_10_063026) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_11_082601) do
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -35,6 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_10_063026) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_hashtags_on_slug", unique: true
   end
 
   create_table "questions", force: :cascade do |t|

@@ -1,15 +1,8 @@
-<%
-=begin%>
- <% @hashtags.each do |hashtag|%>
-  <div class="mt-sm container">
-    <%=  link_to hashtag.name, hashtags_path %>
-  </div>
-<% end %>
-
-<%= @hashtags %> 
-<%
-=end%>
-
+<div class="mt-sm g container">
+  <% @hashtags.each do |hashtag|%>
+    <%= link_to hashtag.name, hashtag_path(hashtag.id) %>
+  <% end %>
+</div> 
 
 <div class="container mt__sm">
   <h2 class="title__lg">

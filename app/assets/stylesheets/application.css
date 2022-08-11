@@ -16,4 +16,5 @@
  *= remove include bootstrap-sprockets
  *
  *= require question
+ *= require grid
  */

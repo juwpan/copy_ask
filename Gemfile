@@ -28,6 +28,8 @@ group :development, :test do
   gem "letter_opener", "~> 1.8.1"
   gem "sqlite3", "~> 1.4"
 
+  gem 'rspec-rails', '~> 6.0.0.rc1'
+
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 

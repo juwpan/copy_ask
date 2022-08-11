@@ -1,0 +1,9 @@
+
+<div class="mb__sm text__pre__line">
+  <%= @question.body %>
+  <div class="mt-sm g">
+    <% @question.hashtags.each do |hashtag|%>
+      <%= link_to hashtag.name, hashtags_path %>
+    <% end %>
+  </div>
+</div>

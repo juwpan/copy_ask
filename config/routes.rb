@@ -15,6 +15,5 @@ Rails.application.routes.draw do
   end
   
   resource :session, only: %i[new create destroy]
-  resource :hashtags, only: %i[show]
-  # resources :users, param: :nickname
+  resources :hashtags, only: %i[show]
 end

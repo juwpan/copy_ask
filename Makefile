@@ -28,10 +28,19 @@ db!:
 bdbm:
 	bundle exec rails db:migrate
 
+dbmh:
+	heroku run rake db:migrate
+
 b:
 	bundle install
 
 key:
 	EDITOR=nano rails credentials:edit
+
+drop:
+	fuser -k -n tcp 3000
+
+test-g:
+	rails generate rspec:install
 
 .PHONY: db test
