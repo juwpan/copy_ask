@@ -1,8 +1,10 @@
 <div class="container">
-  <h2 class="title__lg mb__sm text__grey empty__state"><%= t('.all_users') %></h2>
+  <h5 class="mb__sm text__grey empty__state"><%= t('.all_users') %></h5>
   <div class="user__all" >
     <% @users.each do |user| %>
-      <p  class="title__sm text__bold" ><%= link_to "@#{user.nickname}", user_path(user.id) %></p>
+    <a href="<%= user_path(user) %>">
+      <p  class="text__bold" ><%= image_tag user.gravatar_url, title: "@#{user.nickname}", class: 'rounded' %></p>
+    </a>
     <% end %>
   </div>
 </div>

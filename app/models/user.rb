@@ -6,7 +6,7 @@ class User < ApplicationRecord
   extend FriendlyId
   include Gravtastic
   
-  gravtastic(secure: true, filetype: :png, size: 100, default: 'retro')
+  gravtastic(secure: true, filetype: :png, size: 70, default: 'identicon')
   
   before_create :confirm_token do
     self.confirm_token = SecureRandom.uuid if self.confirm_token.blank? 

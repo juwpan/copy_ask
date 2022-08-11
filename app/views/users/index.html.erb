@@ -3,7 +3,9 @@
   <h2 class="title__sm mb__lg empty__state"><%= t('.who_do_you_want_to_ask_a_question?') %></h2>
   <div class="user__all" >
     <% @users.each do |user| %>
-      <p  class="title__sm text__bold" ><%= link_to "@#{user.nickname}", new_question_path(user_id: user.id) %></p>
+    <a href="<%= user_path(user) %>">
+      <p  class="text__bold" ><%= image_tag user.gravatar_url, title: "@#{user.nickname}", class: 'rounded' %></p>
+    </a>
     <% end %>
   </div>
 </div>

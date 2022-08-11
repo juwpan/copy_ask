@@ -17,3 +17,14 @@
 .users-box-user-bg4 {
   border: 3px solid #f48c06;
 }
+
+.rounded {
+  background-color: #959595;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+}
+
+.rounded:hover {
+  border: 1px solid #868686;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5)
+}
