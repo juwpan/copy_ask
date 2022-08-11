@@ -5,7 +5,7 @@ class Question < ApplicationRecord
   has_many :hashtag_appearances
   has_many :hashtags, through: :hashtag_appearances, dependent: :delete_all
 
-  after_save :hashtag_all
+  before_create :hashtag_all
   
   validates :body, presence: true, length: { maximum: 280 }
 

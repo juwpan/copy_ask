@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(questions_params)
 
     @question.author = current_user
+    @question.hidden = true
     
     if @question.save
       redirect_to user_path(@question.user), notice: I18n.t("controller.new_question_create!")
@@ -49,7 +50,7 @@ class QuestionsController < ApplicationController
     
     @users = User.order(created_at: :desc).last(10)
 
-    @hashtags = Hashtag.order(created_at: :desc).last(10)
+    @hashtags = Hashtag.order(created_at: :desc).first(30)
   end
   
   def new
