@@ -20,7 +20,7 @@
       <%= question.body %>
       <div class="mt-sm g">
         <% question.hashtags.uniq.each do |tag| %>
-          <%= link_to tag.name, hashtag_path(tag.id) %>
+          <%= link_to tag.name, hashtag_path(tag.slug) %>
         <% end %>
       </div>
     </div>
