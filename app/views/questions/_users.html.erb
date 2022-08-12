@@ -1,10 +1,16 @@
-<div class="container">
-  <h5 class="mb__sm text__grey empty__state"><%= t('.all_users') %></h5>
-  <div class="user__all" >
-    <% @users.each do |user| %>
-    <a href="<%= user_path(user) %>">
-      <p  class="text__bold" ><%= image_tag user.gravatar_url, title: "@#{user.nickname}", class: 'rounded' %></p>
-    </a>
-    <% end %>
+<% unless @users.empty? %>
+  <div class="container mt__sm">
+    <h2 class="title__lg">
+      <div class="container">
+        <h5 class="mb__sm text__grey empty__state"><%= t('.all_users') %></h5>
+        <div class="user__all" >
+          <% @users.each do |user| %>
+            <a href="<%= user_path(user) %>">
+              <p  class="text__bold" ><%= image_tag user.gravatar_url, title: "@#{user.nickname}", class: 'rounded' %></p>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </h2>
   </div>
-</div>
+<% end %>

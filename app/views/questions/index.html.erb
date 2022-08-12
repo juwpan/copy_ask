@@ -1,36 +1,37 @@
-  <div class="mt-sm g container">
-<% @hashtags.each do |hashtag|%>
-  <% unless hashtag.questions.blank? %>
+<div class="mt-sm g container">
+  <% @hashtags.each do |hashtag|%>
+    <% unless hashtag.questions.blank? %>
       <%= link_to hashtag.name, hashtag_path(hashtag.id) %>
+    <% end %>
   <% end %>
+</div>
+
+<%= render 'users' %>
+
+<% unless @questions.count == 0 %>
+  <div class="container mt__sm">
+    <h2 class="title__lg">
+      <%= @questions.count %>
+      <%= inclination(@questions.count, 'question', 'questions') %>
+    </h2>
+  </div>
 <% end %>
-  </div> 
-
-<div class="container mt__sm">
-  <h2 class="title__lg">
-    <%= render 'users' %>
-  </h2>
-</div>
-
-<div class="container mt__sm">
-  <h2 class="title__lg">
-    <%= @questions.count %>
-    <%= inclination(@questions.count, 'question', 'questions') %>
-  </h2>
-</div>
 
 <div class="mt__sm container">
- <%
-=begin%>
- <%=  @question.author unless  @question.author == nil %> 
-<%
-=end%>
+  <div class="text__sm question__footer">
+    <div class="text__grey">
+      <% if current_user.present? %>
+        <span><%= t('.question_for') %>
+          <%= link_to display_nickname(current_user), user_path(current_user) %></span>
+      <% end %>
+    </div>
+  </div>
+  
   <% if @questions.count == 0 && current_user.present? %>
     <%= render 'users/user_login' %>
   <% elsif @questions.count == 0%>
     <%= render 'users/user_registration' %>
   <% else %>
-     <%= render @questions %>
+    <%= render @questions %>
   <% end %>
-
 </div>

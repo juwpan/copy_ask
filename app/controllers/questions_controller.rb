@@ -9,9 +9,12 @@ class QuestionsController < ApplicationController
     @question = Question.new(questions_params)
 
     @question.author = current_user
+
     @question.hidden = true
     
     if @question.save
+
+      debugger
       redirect_to user_path(@question.user), notice: I18n.t("controller.new_question_create!")
     else
       flash[:alert] = I18n.t("controller.the_form_has_been_filled_out_incorrectly")

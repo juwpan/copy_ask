@@ -2,7 +2,10 @@ ru:
 
   questions:
     question:
-      question_from: вопрос для
+      question_from: вопрос от
+    index:
+      question_for: вопрос для
+
     users:
       who_do_you_want_to_ask_a_question?: Кому вы хотите задать вопрос?
       all_users: Вновь прибывшие
