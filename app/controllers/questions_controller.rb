@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :ensure_current_user, only: %i[update destroy edit]
-  before_action :set_question_for_current_user, only: %i[edit update destroy]
-  before_action :hidden?, only: %i[hide visible]
+  before_action :set_question_for_current_user, only: %i[edit update]
+  before_action :hidden?, only: %i[hide visible destroy]
 
   def create
     questions_params = params.require(:question).permit(:body, :user_id)
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy  
     @user = @question.user
 
     @question.destroy
