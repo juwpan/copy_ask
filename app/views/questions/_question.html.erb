@@ -5,9 +5,18 @@
     <% end %>
   </div>
 <% end %>
+
+<div class="mt__sm container">
+  <div class="text__sm question__header">
+    <div class="text__grey">
+      <span><%= t('.question_for') %>
+        <%= link_to "@#{question.user.nickname}", user_path(question.user) %></span>
+    </div>
+  </div>
+
 <div class="mb__sm text__pre__line">
   <% if question.hidden? %>
-    <div class="description-game">
+    <div class="description-question">
       <%= question.body %>
       <div class="mt-sm g">
         <% question.hashtags.each do |hashtag|%>
@@ -17,11 +26,13 @@
     </div>
   <% end %>
 </div>
+
 <% if question.answer.present? %>
-  <div class="mb__sm text__dark__red">
+  <div class="mb__sm text__dark__red answer_text_color">
     <%= question.answer %>
   </div>
 <% end %>
+
 <div class="text__sm question__footer">
   <div class="text__grey">
     <% if question.author.present? %>
@@ -30,11 +41,17 @@
     <% end %>
     <%= l(question.created_at, format: :short) %>
   </div>
-  <% if current_user == question.user %>
-    <div>
+
+  <div>
+    <% if current_user == question.user %>
       <% edit_icon = (question.answer.present? ? 'pencil' : 'reply') %>
       <%= link_to fa_icon(edit_icon), edit_question_path(question),
         title: "Change question" %>
+    <% end %>
+
+
+    <% if current_user.present? && current_user.nickname == question.author.nickname %>
+
       <%= link_to fa_icon('trash-o'), question_path(question),
         data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } %>
       <% if question.hidden? %>
@@ -44,6 +61,9 @@
         <%= button_to fa_icon('eye-slash'), hide_question_path(question), title: 'Hidde question?', method: :put %>
         <span class="opacity"><%= link_to "Question #{question.id}", question_path(question) %></span>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
+</div>
+
 </div>

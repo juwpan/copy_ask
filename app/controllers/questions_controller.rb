@@ -13,8 +13,6 @@ class QuestionsController < ApplicationController
     @question.hidden = true
     
     if @question.save
-
-      debugger
       redirect_to user_path(@question.user), notice: I18n.t("controller.new_question_create!")
     else
       flash[:alert] = I18n.t("controller.the_form_has_been_filled_out_incorrectly")
@@ -24,8 +22,12 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    questions_params = params.require(:question).permit(:body, :answer)
-    
+    if @question.author == @question.user
+      questions_params = params.require(:question).permit(:body, :answer)
+    elsif @question.author != @question.user
+      questions_params = params.require(:question).permit(:answer)
+    end
+
     @question.update(questions_params)
 
     if @question.save

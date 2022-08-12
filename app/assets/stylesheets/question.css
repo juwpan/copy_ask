@@ -5,3 +5,11 @@
   padding-top: 10px;
   font-size: 15px;
 }
+
+.question__header {
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  font-size: 15px;
+}

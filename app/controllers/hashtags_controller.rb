@@ -8,6 +8,6 @@ class HashtagsController < ApplicationController
   private
 
   def set_user
-    @hashtag = Hashtag.friendly.find(params[:id])
+    @hashtag = Hashtag.friendly.find(params[:name])
   end
 end
