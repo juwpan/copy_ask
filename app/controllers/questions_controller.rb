@@ -1,15 +1,15 @@
 class QuestionsController < ApplicationController
   before_action :ensure_current_user, only: %i[update destroy edit]
   before_action :set_question_for_current_user, only: %i[edit update]
+  after_action :hashtag_answer, only: %i[update]
   before_action :hidden?, only: %i[hide visible destroy]
 
   def create
     questions_params = params.require(:question).permit(:body, :user_id)
 
     @question = Question.new(questions_params)
-
+    
     @question.author = current_user
-
     @question.hidden = true
     
     if @question.save
@@ -79,6 +79,12 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def hashtag_answer
+    hashtags_answer = @question.answer.scan(/#[[:word:]-]+/).map! { |tag| Hashtag.find_or_create_by!(name: tag.downcase) }
+
+    @question.hashtags << hashtags_answer
+  end
 
   def set_question_for_current_user
     @question = current_user.questions.find(params[:id])

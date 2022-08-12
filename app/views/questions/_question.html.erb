@@ -19,8 +19,8 @@
     <div class="description-question">
       <%= question.body %>
       <div class="mt-sm g">
-        <% question.hashtags.each do |hashtag|%>
-          <%= link_to hashtag.name, hashtag_path(hashtag.id) %>
+        <% question.hashtags.uniq.each do |tag| %>
+          <%= link_to tag.name, hashtag_path(tag.id) %>
         <% end %>
       </div>
     </div>

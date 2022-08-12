@@ -1,7 +1,7 @@
 <div class="container">
 <h2 class="mb"><%= link_to @hashtag.name %></h2>
 
-  <% @questions.each do |question| %>
+  <% @questions.uniq.each do |question| %>
     <p class="g"><%= question.body %><p>
   <% end %>
   
